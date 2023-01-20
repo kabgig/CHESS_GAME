@@ -22,15 +22,14 @@ public class Horse extends ChessPiece {
 
         //target is on board
         if (!(
-                0 <= line && line <= 7 &&
-                        0 <= column && column <= 7 &&
-                        0 <= toLine && toLine <= 7 &&
-                        0 <= toColumn && toColumn <= 7))
+              0 <= line && line <= 7 &&
+              0 <= column && column <= 7 &&
+              0 <= toLine && toLine <= 7 &&
+              0 <= toColumn && toColumn <= 7))
             return false;
 
         //not go to the same position
-        if (chessBoard.board[line][column]
-                .equals(chessBoard.board[toLine][toColumn]))
+        if (line == toLine && column == toColumn)
             return false;
 
         //can go like a horse
@@ -45,8 +44,5 @@ public class Horse extends ChessPiece {
             (toLine == line + 2 && toColumn == column - 1)
         ) return true;
         else return false;
-
-
     }
-
 }
