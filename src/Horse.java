@@ -1,4 +1,4 @@
-public class Horse extends ChessPiece{
+public class Horse extends ChessPiece {
 
     public Horse(String color) {
         super(color);
@@ -10,15 +10,43 @@ public class Horse extends ChessPiece{
     }
 
     @Override
+    public String getSymbol() {
+        return "H";
+    }
+
+    @Override
     public boolean canMoveToPosition(
             ChessBoard chessBoard,
             int line, int column,
             int toLine, int toColumn) {
-        return false;
+
+        //target is on board
+        if (!(
+                0 <= line && line <= 7 &&
+                        0 <= column && column <= 7 &&
+                        0 <= toLine && toLine <= 7 &&
+                        0 <= toColumn && toColumn <= 7))
+            return false;
+
+        //not go to the same position
+        if (chessBoard.board[line][column]
+                .equals(chessBoard.board[toLine][toColumn]))
+            return false;
+
+        //can go like a horse
+        if (
+            (toLine == line + 1 && toColumn == column + 2) ||
+            (toLine == line + 2 && toColumn == column + 1) ||
+            (toLine == line - 1 && toColumn == column + 2) ||
+            (toLine == line - 2 && toColumn == column + 1) ||
+            (toLine == line - 2 && toColumn == column - 1) ||
+            (toLine == line - 1 && toColumn == column - 2) ||
+            (toLine == line + 1 && toColumn == column - 2) ||
+            (toLine == line + 2 && toColumn == column - 1)
+        ) return true;
+        else return false;
+
+
     }
 
-    @Override
-    public String getSymbol() {
-        return "H";
-    }
 }
