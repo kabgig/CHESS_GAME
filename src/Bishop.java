@@ -1,4 +1,4 @@
-public class Bishop extends ChessPiece{
+public class Bishop extends ChessPiece {
 
     public Bishop(String color) {
         super(color);
@@ -8,6 +8,7 @@ public class Bishop extends ChessPiece{
     public String getColor() {
         return color;
     }
+
     @Override
     public String getSymbol() {
         return "B";
@@ -31,12 +32,17 @@ public class Bishop extends ChessPiece{
         if (line == toLine && column == toColumn)
             return false;
 
-        //can go like a horse
-        if (
+        //can go like a bishop
+        boolean res = false;
+        // right up
+        int i = line + 1, j = column + 1;
+        while (i < 8 && j < 8) {
+            if (i == toLine && j == toColumn) {
+                res = true;
+                break;}
+            i++, j++;
+        }
 
-
-        ) return true;
-        else return false;
+        return res;
     }
-
 }
