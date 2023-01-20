@@ -1,12 +1,14 @@
-public class Pawn extends ChessPiece{
+public class Pawn extends ChessPiece {
 
     public Pawn(String color) {
         super(color);
     }
+
     @Override
     public String getColor() {
         return color;
     }
+
     @Override
     public String getSymbol() {
         return "P";
@@ -31,18 +33,22 @@ public class Pawn extends ChessPiece{
             return false;
 
         //can go like a PAWN
-        if (
-                        (toLine == line + 1 && toColumn == column + 2) ||
-                        (toLine == line + 2 && toColumn == column + 1) ||
-                        (toLine == line - 1 && toColumn == column + 2) ||
-                        (toLine == line - 2 && toColumn == column + 1) ||
-                        (toLine == line - 2 && toColumn == column - 1) ||
-                        (toLine == line - 1 && toColumn == column - 2) ||
-                        (toLine == line + 1 && toColumn == column - 2) ||
-                        (toLine == line + 2 && toColumn == column - 1)
+        boolean res = true;
+        //white
+        if (color.equals("White")) {
+            if ((toLine == line + 1 || (toLine == line + 2 && line == 1))
+                    && column == toColumn)
+                res= true;
+            else res= false;
+        }
 
-        ) return true;
-        else return false;
+        //black
+        if (color.equals("Black")) {
+            if ((toLine == line - 1 || (toLine == line - 2 && line == 6))
+                    && column == toColumn)
+                res= true;
+            else res= false;
+        }
+        return res;
     }
-
 }
