@@ -36,41 +36,45 @@ public class Rook extends ChessPiece {
         boolean res = false;
 
         //can go straight up
-        int i = line, j = column + 1;
-        while (j < 8) {
-            if (i == toLine && j == toColumn) {
-                res = true;
-                break;
-            }
-            j++;
-        }
+        if(!res){
+            int i = line, j = column + 1;
+            while (j < 8) {
+                if (i == toLine && j == toColumn) {
+                    res = true;
+                    break;
+                }
+                j++;
+            }}
         //can go straight down
-        int a = line, b = column - 1;
-        while (b >= 0) {
-            if (a == toLine && b == toColumn) {
-                res = true;
-                break;
-            }
-            b--;
-        }
+        if(!res){
+            int a = line, b = column - 1;
+            while (b >= 0) {
+                if (a == toLine && b == toColumn) {
+                    res = true;
+                    break;
+                }
+                b--;
+            }}
         //can go straight right
-        int c = line + 1, d = column;
-        while (c < 8) {
-            if (c == toLine && d == toColumn) {
-                res = true;
-                break;
-            }
-            c++;
-        }
+        if(!res){
+            int c = line + 1, d = column;
+            while (c < 8) {
+                if (c == toLine && d == toColumn) {
+                    res = true;
+                    break;
+                }
+                c++;
+            }}
         //can go straight left
-        int e = line - 1, f = column;
-        while (e >= 0) {
-            if (e == toLine && f == toColumn) {
-                res = true;
-                break;
-            }
-            e--;
-        }
+        if(!res){
+            int e = line - 1, f = column;
+            while (e >= 0) {
+                if (e == toLine && f == toColumn) {
+                    res = true;
+                    break;
+                }
+                e--;
+            }}
         return res;
     }
 }

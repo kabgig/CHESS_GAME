@@ -13,7 +13,37 @@ public class King extends ChessPiece{
     }
 
     @Override
-    public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
-        return false;
+    public boolean canMoveToPosition(
+            ChessBoard chessBoard,
+            int line, int column,
+            int toLine, int toColumn) {
+
+        //target cell is on board
+        if (!(          0 <= line && line <= 7 &&
+                        0 <= column && column <= 7 &&
+                        0 <= toLine && toLine <= 7 &&
+                        0 <= toColumn && toColumn <= 7))
+            return false;
+
+        //not go to the same position
+        if (line == toLine && column == toColumn)
+            return false;
+
+        //can go like a rook
+        boolean res = false;
+        // going around
+        if (    (toLine == line && toColumn == column + 1) ||
+                (toLine == line + 1 && toColumn == column + 1) ||
+                (toLine == line + 1 && toColumn == column) ||
+                (toLine == line + 1 && toColumn == column - 1) ||
+                (toLine == line && toColumn == column - 1) ||
+                (toLine == line - 1 && toColumn == column - 1) ||
+                (toLine == line - 1 && toColumn == column) ||
+                (toLine == line - 1 && toColumn == column + 1) ||
+
+        ) res = true;
+
+
+        return res;
     }
 }
