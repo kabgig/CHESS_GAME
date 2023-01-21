@@ -16,10 +16,6 @@ public class King extends ChessPiece{
         String enemyColor = color.equals("White") ? "Black" : "White";
     }
 
-    public boolean isUnderAttack(ChessBoard board, int line, int column){
-        if ()
-    }
-
     @Override
     public boolean canMoveToPosition(
             ChessBoard chessBoard,
@@ -52,5 +48,9 @@ public class King extends ChessPiece{
 
 
         return res;
+    }
+
+    public boolean isUnderAttack(ChessBoard board, int line, int column){
+        if ()
     }
 }
