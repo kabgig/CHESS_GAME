@@ -51,6 +51,10 @@ public class King extends ChessPiece{
     }
 
     public boolean isUnderAttack(ChessBoard board, int line, int column){
-        if ()
+      //  if (board.board[0][1].getColor() == this.getColor())
+     //   board.board[0][1].getSymbol()
+
     }
+
+
 }
