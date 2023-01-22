@@ -61,7 +61,7 @@ public class King extends ChessPiece {
         if (!res) {
             int i = line, j = 0;
             while (j < 8) {
-                if (board.board[i][j].getColor().equals(getEnemyColor()) &&
+                if (board.board[i][j].getColor().equals(getEnemyColor()) && //ЗДЕСЬ ПОЧЕМУ-ТО NULL OBJECT ПРИХОДИТ fix!!!!
                         (board.board[i][j].getSymbol().equals("R") ||
                                 board.board[i][j].getSymbol().equals("Q"))) {
                     res = true;
