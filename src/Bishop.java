@@ -35,13 +35,14 @@ public class Bishop extends ChessPiece {
         //can go like a bishop
         boolean res = false;
         // right up
+        if(!res){
         int i = line + 1, j = column + 1;
         while (i < 8 && j < 8) {
             if (i == toLine && j == toColumn) {
                 res = true;
                 break;}
             i++; j++;
-        }
+        }}
 
         // left up
         if(!res){
