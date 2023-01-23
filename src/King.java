@@ -61,7 +61,7 @@ public class King extends ChessPiece {
         if (!res) {
             int i = line, j = 0;
             while (j < 8) {
-                if (board.board[i][j].getColor().equals(getEnemyColor()) && //ЗДЕСЬ ПОЧЕМУ-ТО NULL OBJECT ПРИХОДИТ fix!!!!
+                if (board.board[i][j] != null && board.board[i][j].getColor().equals(getEnemyColor()) &&
                         (board.board[i][j].getSymbol().equals("R") ||
                                 board.board[i][j].getSymbol().equals("Q"))) {
                     res = true;
@@ -74,7 +74,7 @@ public class King extends ChessPiece {
         if (!res) {
             int i = 0, j = column;
             while (i < 8) {
-                if (board.board[i][j].getColor().equals(getEnemyColor()) &&
+                if (board.board[i][j] != null && board.board[i][j].getColor().equals(getEnemyColor()) &&
                         (board.board[i][j].getSymbol().equals("R") ||
                                 board.board[i][j].getSymbol().equals("Q"))) {
                     res = true;
@@ -87,7 +87,7 @@ public class King extends ChessPiece {
         if (!res) {
             int g = line + 1, h = column + 1;
             while (g < 8 && h < 8) {
-                if (board.board[g][h].getColor().equals(getEnemyColor()) &&
+                if (board.board[g][h] != null && board.board[g][h].getColor().equals(getEnemyColor()) &&
                         (board.board[g][h].getSymbol().equals("B") ||
                                 board.board[g][h].getSymbol().equals("Q"))) {
                     res = true;
@@ -101,7 +101,7 @@ public class King extends ChessPiece {
         if (!res) {
             int a = line - 1, b = column + 1;
             while (a >= 0 && b < 8) {
-                if (board.board[a][b].getColor().equals(getEnemyColor()) &&
+                if (board.board[a][b] != null && board.board[a][b].getColor().equals(getEnemyColor()) &&
                         (board.board[a][b].getSymbol().equals("B") ||
                                 board.board[a][b].getSymbol().equals("Q"))) {
                     res = true;
@@ -115,7 +115,7 @@ public class King extends ChessPiece {
         if (!res) {
             int a = line - 1, b = column - 1;
             while (a >= 0 && b >= 0) {
-                if (board.board[a][b].getColor().equals(getEnemyColor()) &&
+                if (board.board[a][b] != null && board.board[a][b].getColor().equals(getEnemyColor()) &&
                         (board.board[a][b].getSymbol().equals("B") ||
                                 board.board[a][b].getSymbol().equals("Q"))) {
                     res = true;
@@ -129,7 +129,7 @@ public class King extends ChessPiece {
         if (!res) {
             int a = line + 1, b = column - 1;
             while (a < 8 && b >= 0) {
-                if (board.board[a][b].getColor().equals(getEnemyColor()) &&
+                if (board.board[a][b] != null && board.board[a][b].getColor().equals(getEnemyColor()) &&
                         (board.board[a][b].getSymbol().equals("B") ||
                                 board.board[a][b].getSymbol().equals("Q"))) {
                     res = true;
@@ -142,38 +142,45 @@ public class King extends ChessPiece {
         //HORSE CHECK-------------
         if (!res) {
             if (
-                    (board.board[line + 1][column + 2].getColor().equals(getEnemyColor()) &&
+                    (board.board[line + 1][column + 2] != null && board.board[line + 1][column + 2].getColor().equals(getEnemyColor()) &&
                             board.board[line + 1][column + 2].getSymbol().equals("H")) ||
-                            (board.board[line + 2][column + 1].getColor().equals(getEnemyColor()) &&
+
+                            (board.board[line + 2][column + 1] != null && board.board[line + 2][column + 1].getColor().equals(getEnemyColor()) &&
                                     board.board[line + 2][column + 1].getSymbol().equals("H")) ||
-                            (board.board[line - 1][column + 2].getColor().equals(getEnemyColor()) &&
+
+                            (board.board[line - 1][column + 2] != null && board.board[line - 1][column + 2].getColor().equals(getEnemyColor()) &&
                                     board.board[line - 1][column + 2].getSymbol().equals("H")) ||
-                            (board.board[line - 2][column + 1].getColor().equals(getEnemyColor()) &&
+
+                            (board.board[line - 2][column + 1] != null && board.board[line - 2][column + 1].getColor().equals(getEnemyColor()) &&
                                     board.board[line - 2][column + 1].getSymbol().equals("H")) ||
-                            (board.board[line - 2][column - 1].getColor().equals(getEnemyColor()) &&
+
+                            (board.board[line - 2][column - 1] != null && board.board[line - 2][column - 1].getColor().equals(getEnemyColor()) &&
                                     board.board[line - 2][column - 1].getSymbol().equals("H")) ||
-                            (board.board[line - 1][column - 2].getColor().equals(getEnemyColor()) &&
+
+                            (board.board[line - 1][column - 2] != null && board.board[line - 1][column - 2].getColor().equals(getEnemyColor()) &&
                                     board.board[line - 1][column - 2].getSymbol().equals("H")) ||
-                            (board.board[line + 1][column - 2].getColor().equals(getEnemyColor()) &&
+
+                            (board.board[line + 1][column - 2] != null && board.board[line + 1][column - 2].getColor().equals(getEnemyColor()) &&
                                     board.board[line + 1][column - 2].getSymbol().equals("H")) ||
-                            (board.board[line + 2][column - 1].getColor().equals(getEnemyColor()) &&
+
+                            (board.board[line + 2][column - 1] != null && board.board[line + 2][column - 1].getColor().equals(getEnemyColor()) &&
                                     board.board[line + 2][column - 1].getSymbol().equals("H"))
             ) res = true;
         }
         //PAWN CHECK
         if (!res) {
             if (getEnemyColor().equals("Black")) {
-                if (    (board.board[line + 1][column + 1].getColor().equals("Black") &&
+                if (    (board.board[line + 1][column + 1] != null && board.board[line + 1][column + 1].getColor().equals("Black") &&
                         board.board[line + 1][column + 1].getSymbol().equals("P")) ||
-                        (board.board[line - 1][column + 1].getColor().equals("Black") &&
+                        (board.board[line - 1][column + 1] != null && board.board[line - 1][column + 1].getColor().equals("Black") &&
                          board.board[line - 1][column + 1].getSymbol().equals("P"))
                 ) res = true;
             }
 
             if (getEnemyColor().equals("White")) {
-                if (    (board.board[line + 1][column - 1].getColor().equals("White") &&
+                if (    (board.board[line + 1][column - 1] != null && board.board[line + 1][column - 1].getColor().equals("White") &&
                         board.board[line + 1][column - 1].getSymbol().equals("P")) ||
-                        (board.board[line - 1][column - 1].getColor().equals("White") &&
+                        (board.board[line - 1][column - 1] != null && board.board[line - 1][column - 1].getColor().equals("White") &&
                         board.board[line - 1][column - 1].getSymbol().equals("P"))
                 ) res = true;
             }
