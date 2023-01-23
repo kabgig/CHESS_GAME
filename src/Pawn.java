@@ -38,18 +38,19 @@ public class Pawn extends ChessPiece {
                 !chessBoard.board[toLine][toColumn].getColor().equals(color);
         //white
         if (color.equals("White")) {
-            if ((toLine == line + 1 ||
-                    (toLine == line + 2 && line == 1 && chessBoard.board[line + 1][column] == null)
-                    && column == toColumn))
-                if (notOurs) res = true;
+            //if moving
+            if ((toLine == line + 1 || (toLine == line + 2 && line == 1 && chessBoard.board[line + 2][column] == null))
+                    && column == toColumn && chessBoard.board[line + 1][column] == null)
+                res = true;
+            //if kill
+
         }
 
         //black
         if (color.equals("Black")) {
-            if ((toLine == line - 1
-                    || (toLine == line - 2 && line == 6 && chessBoard.board[line - 1][column] == null))
-                    && column == toColumn)
-                if (notOurs) res = true;
+            if ((toLine == line - 1 || (toLine == line - 2 && line == 6 && chessBoard.board[line - 2][column] == null))
+                    && column == toColumn && chessBoard.board[line - 1][column] == null)
+                res = true;
         }
         return res;
     }
