@@ -43,6 +43,8 @@ public class Pawn extends ChessPiece {
                     && column == toColumn && chessBoard.board[line + 1][column] == null)
                 res = true;
             //if kill
+            if (toLine == line + 1 && (toColumn == column + 1 || toColumn == column - 1) && notOurs)
+                res = true;
 
         }
 
@@ -50,6 +52,9 @@ public class Pawn extends ChessPiece {
         if (color.equals("Black")) {
             if ((toLine == line - 1 || (toLine == line - 2 && line == 6 && chessBoard.board[line - 2][column] == null))
                     && column == toColumn && chessBoard.board[line - 1][column] == null)
+                res = true;
+            //if kill
+            if (toLine == line - 1 && (toColumn == column + 1 || toColumn == column - 1) && notOurs)
                 res = true;
         }
         return res;
