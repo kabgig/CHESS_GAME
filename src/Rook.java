@@ -43,37 +43,41 @@ public class Rook extends ChessPiece {
                     res = true;
                     break;
                 }
+                if (chessBoard.board[i][j] != null) break; //nothing is on the way
                 j++;
             }}
         //can go straight down
         if(!res){
-            int a = line, b = column - 1;
-            while (b >= 0) {
-                if (a == toLine && b == toColumn) {
+            int i = line, j = column - 1;
+            while (j >= 0) {
+                if (i == toLine && j == toColumn) {
                     res = true;
                     break;
                 }
-                b--;
+                if (chessBoard.board[i][j] != null) break; //nothing is on the way
+                j--;
             }}
         //can go straight right
         if(!res){
-            int c = line + 1, d = column;
-            while (c < 8) {
-                if (c == toLine && d == toColumn) {
+            int i = line + 1, j = column;
+            while (i < 8) {
+                if (i == toLine && j == toColumn) {
                     res = true;
                     break;
                 }
-                c++;
+                if (chessBoard.board[i][j] != null) break; //nothing is on the way
+                i++;
             }}
         //can go straight left
         if(!res){
-            int e = line - 1, f = column;
-            while (e >= 0) {
-                if (e == toLine && f == toColumn) {
+            int i = line - 1, j = column;
+            while (i >= 0) {
+                if (i == toLine && j == toColumn) {
                     res = true;
                     break;
                 }
-                e--;
+                if (chessBoard.board[i][j] != null) break; //nothing is on the way
+                i--;
             }}
         return res;
     }

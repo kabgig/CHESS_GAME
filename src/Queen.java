@@ -30,7 +30,7 @@ public class Queen extends ChessPiece{
         if (line == toLine && column == toColumn)
             return false;
 
-        //can go like a rook
+        //can go like a QUEEN
         boolean res = false;
 
         //STRAIGHTS
@@ -42,77 +42,85 @@ public class Queen extends ChessPiece{
                 res = true;
                 break;
             }
+            if (chessBoard.board[i][j] != null) break; //nothing is on the way
             j++;
         }}
         //can go straight down
         if(!res){
-        int a = line, b = column - 1;
-        while (b >= 0) {
-            if (a == toLine && b == toColumn) {
+        int i = line, j = column - 1;
+        while (j >= 0) {
+            if (i == toLine && j == toColumn) {
                 res = true;
                 break;
             }
-            b--;
+            if (chessBoard.board[i][j] != null) break; //nothing is on the way
+            j--;
         }}
         //can go straight right
         if(!res){
-        int c = line + 1, d = column;
-        while (c < 8) {
-            if (c == toLine && d == toColumn) {
+        int i = line + 1, j = column;
+        while (i < 8) {
+            if (i == toLine && j == toColumn) {
                 res = true;
                 break;
             }
-            c++;
+            if (chessBoard.board[i][j] != null) break; //nothing is on the way
+            i++;
         }}
         //can go straight left
         if(!res){
-        int e = line - 1, f = column;
-        while (e >= 0) {
-            if (e == toLine && f == toColumn) {
+        int i = line - 1, j = column;
+        while (i >= 0) {
+            if (i == toLine && j == toColumn) {
                 res = true;
                 break;
             }
-            e--;
+            if (chessBoard.board[i][j] != null) break; //nothing is on the way
+            i--;
         }}
 
         //DIAGONALS
         // right up diagonal
         if(!res){
-        int g = line + 1, h = column + 1;
-        while (g < 8 && h < 8) {
-            if (g == toLine && h == toColumn) {
+        int i = line + 1, j = column + 1;
+        while (i < 8 && j < 8) {
+            if (i == toLine && j == toColumn) {
                 res = true;
                 break;}
-            g++; h++;
+            if (chessBoard.board[i][j] != null) break; //nothing is on the way
+            i++; j++;
         }}
         // left up diagonal
         if(!res){
-            int k = line - 1, l = column + 1;
-            while (k >= 0 && l < 8) {
-                if (k == toLine && l == toColumn) {
+            int i = line - 1, j = column + 1;
+            while (i >= 0 && j < 8) {
+                if (i == toLine && j == toColumn) {
                     res = true;
                     break;}
-                k--; l++;
+                if (chessBoard.board[i][j] != null) break; //nothing is on the way
+                i--; j++;
             }
         }
         // left down diagonal
         if(!res){
-            int m = line - 1, n = column - 1;
-            while (m >= 0 && n >= 0) {
-                if (m == toLine && n == toColumn) {
+            int i = line - 1, j = column - 1;
+            while (i >= 0 && j >= 0) {
+                if (i == toLine && j == toColumn) {
                     res = true;
                     break;}
-                m--; n--;
+                if (chessBoard.board[i][j] != null) break; //nothing is on the way
+                i--; j--;
             }
         }
         // right down diagonal
         if(!res){
-            int p = line + 1, q = column - 1;
-            while (p < 8 && q >= 0) {
-                if (p == toLine && q == toColumn) {
+            int i = line + 1, j = column - 1;
+            while (i < 8 && j >= 0) {
+                if (i == toLine && j == toColumn) {
                     res = true;
                     break;}
-                p++; q--;
+                if (chessBoard.board[i][j] != null) break; //nothing is on the way
+                i++; j--;
             }
         }
         return res;

@@ -36,15 +36,17 @@ public class Pawn extends ChessPiece {
         boolean res = true;
         //white
         if (color.equals("White")) {
-            if ((toLine == line + 1 || (toLine == line + 2 && line == 1))
-                    && column == toColumn)
+            if ((toLine == line + 1 ||
+                    (toLine == line + 2 && line == 1 && chessBoard.board[line + 1][column] == null)
+                    && column == toColumn))
                 res= true;
             else res= false;
         }
 
         //black
         if (color.equals("Black")) {
-            if ((toLine == line - 1 || (toLine == line - 2 && line == 6))
+            if ((toLine == line - 1
+                    || (toLine == line - 2 && line == 6 && chessBoard.board[line - 1][column] == null))
                     && column == toColumn)
                 res= true;
             else res= false;

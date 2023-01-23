@@ -34,14 +34,16 @@ public class Horse extends ChessPiece {
 
         //can go like a horse
         if (
-            (toLine == line + 1 && toColumn == column + 2) ||
+           ((toLine == line + 1 && toColumn == column + 2) ||
             (toLine == line + 2 && toColumn == column + 1) ||
             (toLine == line - 1 && toColumn == column + 2) ||
             (toLine == line - 2 && toColumn == column + 1) ||
             (toLine == line - 2 && toColumn == column - 1) ||
             (toLine == line - 1 && toColumn == column - 2) ||
             (toLine == line + 1 && toColumn == column - 2) ||
-            (toLine == line + 2 && toColumn == column - 1)
+            (toLine == line + 2 && toColumn == column - 1)) &&
+            (chessBoard.board[toLine][toColumn] == null ||
+                   !chessBoard.board[toLine][toColumn].getColor().equals(color))
         ) return true;
         else return false;
     }

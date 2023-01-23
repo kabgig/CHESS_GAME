@@ -41,39 +41,43 @@ public class Bishop extends ChessPiece {
             if (i == toLine && j == toColumn) {
                 res = true;
                 break;}
+            if (chessBoard.board[i][j] != null) break; //nothing is on the way
             i++; j++;
         }}
 
         // left up
         if(!res){
-            int a = line - 1, b = column + 1;
-            while (a >= 0 && b < 8) {
-                if (a == toLine && b == toColumn) {
+            int i = line - 1, j = column + 1;
+            while (i >= 0 && j < 8) {
+                if (i == toLine && j == toColumn) {
                     res = true;
                     break;}
-                a--; b++;
+                if (chessBoard.board[i][j] != null) break; //nothing is on the way
+                i--; j++;
             }
         }
 
         // left down
         if(!res){
-            int c = line - 1, d = column - 1;
-            while (c >= 0 && d >= 0) {
-                if (c == toLine && d == toColumn) {
+            int i = line - 1, j = column - 1;
+            while (i >= 0 && j >= 0) {
+                if (i == toLine && j == toColumn) {
                     res = true;
                     break;}
-                c--; d--;
+                if (chessBoard.board[i][j] != null) break; //nothing is on the way
+                i--; j--;
             }
         }
 
         // right down
         if(!res){
-            int e = line + 1, g = column - 1;
-            while (e < 8 && g >= 0) {
-                if (e == toLine && g == toColumn) {
+            int i = line + 1, j = column - 1;
+            while (i < 8 && j >= 0) {
+                if (i == toLine && j == toColumn) {
                     res = true;
                     break;}
-                e++; g--;
+                if (chessBoard.board[i][j] != null) break; //nothing is on the way
+                i++; j--;
             }
         }
 
