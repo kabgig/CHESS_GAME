@@ -7,6 +7,7 @@ public abstract class ChessPiece {
     }
 
     public abstract String getColor();
+
     public abstract boolean canMoveToPosition(
             ChessBoard chessBoard,
             int line,
@@ -16,3 +17,4 @@ public abstract class ChessPiece {
 
     public abstract String getSymbol();
 }
+

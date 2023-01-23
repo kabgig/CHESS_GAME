@@ -38,14 +38,16 @@ public class King extends ChessPiece {
         //can go like a rook
         boolean res = false;
         // going around
-        if ((toLine == line && toColumn == column + 1) ||
+        if (((toLine == line && toColumn == column + 1) ||
                 (toLine == line + 1 && toColumn == column + 1) ||
                 (toLine == line + 1 && toColumn == column) ||
                 (toLine == line + 1 && toColumn == column - 1) ||
                 (toLine == line && toColumn == column - 1) ||
                 (toLine == line - 1 && toColumn == column - 1) ||
                 (toLine == line - 1 && toColumn == column) ||
-                (toLine == line - 1 && toColumn == column + 1)
+                (toLine == line - 1 && toColumn == column + 1)) &&
+                (chessBoard.board[toLine][toColumn] == null ||
+                        !chessBoard.board[toLine][toColumn].getColor().equals(color))
         ) res = true;
 
 

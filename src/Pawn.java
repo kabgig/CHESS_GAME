@@ -33,14 +33,15 @@ public class Pawn extends ChessPiece {
             return false;
 
         //can go like a PAWN
-        boolean res = true;
+        boolean res = false;
+        boolean notOurs = chessBoard.board[toLine][toColumn] == null ||
+                !chessBoard.board[toLine][toColumn].getColor().equals(color);
         //white
         if (color.equals("White")) {
             if ((toLine == line + 1 ||
                     (toLine == line + 2 && line == 1 && chessBoard.board[line + 1][column] == null)
                     && column == toColumn))
-                res= true;
-            else res= false;
+                if (notOurs) res = true;
         }
 
         //black
@@ -48,8 +49,7 @@ public class Pawn extends ChessPiece {
             if ((toLine == line - 1
                     || (toLine == line - 2 && line == 6 && chessBoard.board[line - 1][column] == null))
                     && column == toColumn)
-                res= true;
-            else res= false;
+                if (notOurs) res = true;
         }
         return res;
     }

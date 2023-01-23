@@ -32,14 +32,15 @@ public class Queen extends ChessPiece{
 
         //can go like a QUEEN
         boolean res = false;
-
+        boolean notOurs = chessBoard.board[toLine][toColumn] == null ||
+                !chessBoard.board[toLine][toColumn].getColor().equals(color);
         //STRAIGHTS
         //can go straight up
         if(!res){
         int i = line, j = column + 1;
         while (j < 8) {
             if (i == toLine && j == toColumn) {
-                res = true;
+                if (notOurs) res = true;
                 break;
             }
             if (chessBoard.board[i][j] != null) break; //nothing is on the way
@@ -50,7 +51,7 @@ public class Queen extends ChessPiece{
         int i = line, j = column - 1;
         while (j >= 0) {
             if (i == toLine && j == toColumn) {
-                res = true;
+                if (notOurs) res = true;
                 break;
             }
             if (chessBoard.board[i][j] != null) break; //nothing is on the way
@@ -61,7 +62,7 @@ public class Queen extends ChessPiece{
         int i = line + 1, j = column;
         while (i < 8) {
             if (i == toLine && j == toColumn) {
-                res = true;
+                if (notOurs) res = true;
                 break;
             }
             if (chessBoard.board[i][j] != null) break; //nothing is on the way
@@ -72,7 +73,7 @@ public class Queen extends ChessPiece{
         int i = line - 1, j = column;
         while (i >= 0) {
             if (i == toLine && j == toColumn) {
-                res = true;
+                if (notOurs) res = true;
                 break;
             }
             if (chessBoard.board[i][j] != null) break; //nothing is on the way
@@ -85,7 +86,7 @@ public class Queen extends ChessPiece{
         int i = line + 1, j = column + 1;
         while (i < 8 && j < 8) {
             if (i == toLine && j == toColumn) {
-                res = true;
+                if (notOurs) res = true;
                 break;}
             if (chessBoard.board[i][j] != null) break; //nothing is on the way
             i++; j++;
@@ -95,7 +96,7 @@ public class Queen extends ChessPiece{
             int i = line - 1, j = column + 1;
             while (i >= 0 && j < 8) {
                 if (i == toLine && j == toColumn) {
-                    res = true;
+                    if (notOurs) res = true;
                     break;}
                 if (chessBoard.board[i][j] != null) break; //nothing is on the way
                 i--; j++;
@@ -106,7 +107,7 @@ public class Queen extends ChessPiece{
             int i = line - 1, j = column - 1;
             while (i >= 0 && j >= 0) {
                 if (i == toLine && j == toColumn) {
-                    res = true;
+                    if (notOurs) res = true;
                     break;}
                 if (chessBoard.board[i][j] != null) break; //nothing is on the way
                 i--; j--;
@@ -117,7 +118,7 @@ public class Queen extends ChessPiece{
             int i = line + 1, j = column - 1;
             while (i < 8 && j >= 0) {
                 if (i == toLine && j == toColumn) {
-                    res = true;
+                    if (notOurs) res = true;
                     break;}
                 if (chessBoard.board[i][j] != null) break; //nothing is on the way
                 i++; j--;
