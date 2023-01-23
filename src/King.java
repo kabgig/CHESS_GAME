@@ -34,8 +34,9 @@ public class King extends ChessPiece {
         //not go to the same position
         if (line == toLine && column == toColumn)
             return false;
+        if (isUnderAttack(chessBoard, toLine, toColumn)) return false;
 
-        //can go like a rook
+        //can go like a king
         boolean res = false;
         // going around
         if (((toLine == line && toColumn == column + 1) ||
@@ -50,14 +51,11 @@ public class King extends ChessPiece {
                         !chessBoard.board[toLine][toColumn].getColor().equals(color))
         ) res = true;
 
-
         return res;
     }
 
     public boolean isUnderAttack(ChessBoard board, int line, int column) {
         boolean res = false;
-        //  if (board.board[0][1].getColor() == this.getColor())
-        //   board.board[0][1].getSymbol()
 
         //CHECK ENEMY ROOK AND QUEEN STRAIGHT UP/DOWN
         if (!res) {
