@@ -34,7 +34,7 @@ public class Rook extends ChessPiece {
 
         //can go like a rook
         boolean res = false;
-        boolean notOurs = chessBoard.board[toLine][toColumn] == null ||
+        boolean isEnemyColor = chessBoard.board[toLine][toColumn] == null ||
                 !chessBoard.board[toLine][toColumn].getColor().equals(color);
 
         //can go straight up
@@ -42,7 +42,7 @@ public class Rook extends ChessPiece {
             int i = line, j = column + 1;
             while (j < 8) {
                 if (i == toLine && j == toColumn) {
-                    if (notOurs) res = true;
+                    if (isEnemyColor) res = true;
                     break;
                 }
                 if (chessBoard.board[i][j] != null) break; //nothing is on the way
@@ -53,7 +53,7 @@ public class Rook extends ChessPiece {
             int i = line, j = column - 1;
             while (j >= 0) {
                 if (i == toLine && j == toColumn) {
-                    if (notOurs) res = true;
+                    if (isEnemyColor) res = true;
                     break;
                 }
                 if (chessBoard.board[i][j] != null) break; //nothing is on the way
@@ -64,7 +64,7 @@ public class Rook extends ChessPiece {
             int i = line + 1, j = column;
             while (i < 8) {
                 if (i == toLine && j == toColumn) {
-                    if (notOurs) res = true;
+                    if (isEnemyColor) res = true;
                     break;
                 }
                 if (chessBoard.board[i][j] != null) break; //nothing is on the way
@@ -75,7 +75,7 @@ public class Rook extends ChessPiece {
             int i = line - 1, j = column;
             while (i >= 0) {
                 if (i == toLine && j == toColumn) {
-                    if (notOurs) res = true;
+                    if (isEnemyColor) res = true;
                     break;
                 }
                 if (chessBoard.board[i][j] != null) break; //nothing is on the way
