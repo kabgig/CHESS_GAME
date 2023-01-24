@@ -1,12 +1,7 @@
 import java.util.Scanner;
 
 public class Main {
-/*PROBLEMS
 
-* -Make pawn to become queen
-*
-*
-* */
 
     public static ChessBoard buildBoard() {
         ChessBoard board = new ChessBoard("White");
@@ -18,7 +13,7 @@ public class Main {
         board.board[0][4] = new King("White");
         board.board[0][5] = new Bishop("White");
         board.board[0][6] = new Horse("White");
-       // board.board[0][7] = new Rook("White");
+        board.board[0][7] = new Rook("White");
         board.board[1][0] = new Pawn("White");
         board.board[1][1] = new Pawn("White");
         board.board[1][2] = new Pawn("White");
@@ -26,7 +21,7 @@ public class Main {
         board.board[1][4] = new Pawn("White");
         board.board[1][5] = new Pawn("White");
         board.board[1][6] = new Pawn("White");
-        board.board[6][7] = new Pawn("White");
+        board.board[1][7] = new Pawn("White");
 
         board.board[7][0] = new Rook("Black");
         board.board[7][1] = new Horse("Black");
@@ -35,7 +30,7 @@ public class Main {
         board.board[7][4] = new King("Black");
         board.board[7][5] = new Bishop("Black");
         board.board[7][6] = new Horse("Black");
-        //board.board[7][7] = new Rook("Black");
+        board.board[7][7] = new Rook("Black");
         board.board[6][0] = new Pawn("Black");
         board.board[6][1] = new Pawn("Black");
         board.board[6][2] = new Pawn("Black");
@@ -43,7 +38,7 @@ public class Main {
         board.board[6][4] = new Pawn("Black");
         board.board[6][5] = new Pawn("Black");
         board.board[6][6] = new Pawn("Black");
-        board.board[1][7] = new Pawn("Black");
+        board.board[6][7] = new Pawn("Black");
         return board;
     }
 
