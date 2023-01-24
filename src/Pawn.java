@@ -1,5 +1,7 @@
 public class Pawn extends ChessPiece {
 
+    private String symbol = "P";
+
     public Pawn(String color) {
         super(color);
     }
@@ -11,7 +13,11 @@ public class Pawn extends ChessPiece {
 
     @Override
     public String getSymbol() {
-        return "P";
+        return symbol;
+    }
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
     }
 
     @Override

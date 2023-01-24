@@ -23,6 +23,15 @@ public class ChessBoard {
                 }
 
                 board[endLine][endColumn] = board[startLine][startColumn]; // if piece can move, we moved a piece
+
+                if (board[endLine][endColumn].getSymbol().equals("P") &&
+                        ((endLine == 7 /*&& board[startLine][startColumn].getColor().equals("white")*/) ||
+                        (endLine == 0 /*&& board[startLine][startColumn].getColor().equals("black")*/))){
+                    board[endLine][endColumn] = new Queen(board[endLine][endColumn].getColor());
+                }
+
+
+
                 board[startLine][startColumn] = null; // set null to previous cell
                 this.nowPlayer = this.nowPlayerColor().equals("White") ? "Black" : "White";
 
