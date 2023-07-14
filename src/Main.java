@@ -49,33 +49,33 @@ public class Main {
         System.out.println("""
                 Commands:
                 'exit' - for exit
-                'replay' - для перезапуска игры
-                'castling0' или 'castling7' - для рокировки по соответствующей линии
-                'move 1 1 2 3' - для передвижения фигуры с позиции 1 1 на 2 3(поле это двумерный массив от 0 до 7)
-                Проверьте могут ли фигуры ходить друг сквозь друга, корректно ли съедают друг друга, можно ли поставить шах и сделать рокировку?""");
+                'replay' - relaunch the game
+                'castling0' или 'castling7' - to make castling on line 0 or 7
+                'move 1 1 2 3' - to move figure from position 1 1 to 2 3(the field is a two-dimensional array from 0 to 7)
+                """);
         System.out.println();
         board.printBoard();
         while (true) {
             String s = scanner.nextLine();
             if (s.equals("exit")) break;
             else if (s.equals("replay")) {
-                System.out.println("Заново");
+                System.out.println("from scratch");
                 board = buildBoard();
                 board.printBoard();
             } else {
                 if (s.equals("castling0")) {
                     if (board.castling0()) {
-                        System.out.println("Рокировка удалась");
+                        System.out.println("Castling is successful");
                         board.printBoard();
                     } else {
-                        System.out.println("Рокировка не удалась");
+                        System.out.println("Castling is not successful");
                     }
                 } else if (s.equals("castling7")) {
                     if (board.castling7()) {
-                        System.out.println("Рокировка удалась");
+                        System.out.println("Castling is successful");
                         board.printBoard();
                     } else {
-                        System.out.println("Рокировка не удалась");
+                        System.out.println("Castling is not successful");
                     }
                 } else if (s.contains("move")) {
                     String[] a = s.split(" ");
@@ -85,11 +85,11 @@ public class Main {
                         int toLine = Integer.parseInt(a[3]);
                         int toColumn = Integer.parseInt(a[4]);
                         if (board.moveToPosition(line, column, toLine, toColumn)) {
-                            System.out.println("Успешно передвинулись");
+                            System.out.println("Moved successfully");
                             board.printBoard();
-                        } else System.out.println("Передвижение не удалось");
+                        } else System.out.println("Not moved");
                     } catch (Exception e) {
-                        System.out.println("Вы что-то ввели не так, попробуйте ещё раз");
+                        System.out.println("Something is wrong, try again");
                     }
 
                 }
